@@ -12,6 +12,10 @@ public class PercolationStats
     //Perform T independent experiments on an N-by-N grid
     public PercolationStats(int N, int T)
     {
+        if (N <= 0 || T <= 0)
+        {
+             throw new java.lang.IllegalArgumentException();
+        }
         //TODO: Constructor must throw a java.lang.IllegalArgumentException if either N <= 0 or T <= 0
     }
     
