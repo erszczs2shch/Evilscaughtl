@@ -33,15 +33,15 @@ public class Percolation
         blockState = new boolean[ARRAY_SIZE];
         
 
-        int failsafe = 0; //For Testing Purposes
-        while (percolates() == false && failsafe < ARRAY_SIZE)
+        int failSafe = 0; //For Testing Purposes
+        while (percolates() == false && failSafe < ARRAY_SIZE)
         {
             int x = StdRandom.uniform(dimension);
             int y = StdRandom.uniform(dimension);
             
             open(x, y);
 
-            failsafe++; //For Testing Purposes
+            failSafe++; //For Testing Purposes
         }
         
     } 
@@ -124,7 +124,7 @@ public class Percolation
         int index = convert2Dto1D(row, col);
         for (int row1 = 0; row1 < dimension; row1++)
         {
-            int row1Index = convert2Dto1D(row1, 0);
+            int row1Index = convert2Dto1D(0, row1++); //Testing, switched x and y.
             if ((percTree.connected(index, row1Index) == true) && (blockState[row1Index] != false) && (blockState[index] != false))
             {
                 return true;
